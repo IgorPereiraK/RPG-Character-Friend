@@ -1,0 +1,30 @@
+export type CharacterInfo = {
+    perfil: string
+    image: string
+    name: string
+    hp: string
+    mp: string
+    level: string
+    alinhamento: string
+    ca: string
+    raca: string
+    classe: string
+    proficiencia1: string
+    proficiencia2: string
+    proficiencia3: string
+    proficiencia4: string
+    proficiencia5?: string
+    proficiencia6?: string
+    forcaValor: string
+    forcaModificador: string
+    destrezaValor: string
+    destrezaModificador: string
+    constituicaoValor: string
+    constituicaoModificador: string
+    inteligenciaValor: string
+    inteligenciaModificador: string
+    carismaValor: string
+    carismaModificador: string
+    sabedoriaValor: string
+    sabedoriaModificador: string
+};
