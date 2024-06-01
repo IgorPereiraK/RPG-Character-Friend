@@ -26,7 +26,10 @@ export const skillsGuren: Skills[] = [
             <div>
                 <p>O foco do faraó te concede <span className="text-yellow-300">penetração de armadura em 10% </span>
                     Pode fazer <span className="text-yellow-300">um dado de acerto virar um crítico</span> durante uma luta.
-                    Adversários com <span className="text-yellow-300">1/3 do seu nível</span> caem quando vc quiser. <span className="text-yellow-300 underline underline-offset-4">Golpe atordoante:</span> esse golpe <span className="text-yellow-300">soma sua inteligência e sabedoria</span> em uma onda de choque onde pode deixar os <span className="text-yellow-300">adversários fora de jogo por 1d3 rodadas</span>, o recarregamento dessa habilidade e de <span className="text-yellow-300">4 rodadas.</span></p>
+                    Adversários com <span className="text-yellow-300">1/3 do seu nível</span> caem quando vc quiser.
+                    <p><span className="text-yellow-300 underline underline-offset-4">Golpe atordoante:</span> esse golpe <span className="text-yellow-300">soma sua inteligência e 
+                    sabedoria</span> em uma onda de choque onde pode deixar os <span className="text-yellow-300">adversários fora de jogo por 1d3 rodadas</span>, o recarregamento dessa habilidade e de <span className="text-yellow-300">4 rodadas</span>.</p>
+                </p>
             </div>
         ),
         type: (
@@ -58,7 +61,7 @@ export const skillsGuren: Skills[] = [
         magic: 'Transformação Espiritual',
         description: (
             <div>
-                <p>A Mega evolução espiritual é uma transformação que deixa Guren mais forte dando a ele, <span className="text-yellow-300">+2 em força, destreza, constituição, sabedoria, inteligência</span>, <span className="text-yellow-300">10% de 
+                <p>A Mega evolução espiritual é uma transformação que deixa Guren mais forte dando a ele, <span className="text-yellow-300">+2 em força, destreza, constituição, sabedoria, inteligência</span>, <span className="text-yellow-300">1d8 de 
                     armadura mágica e física</span>, <span className="text-yellow-300">1dx de cura</span> por rodada, quanto mais <span className="text-yellow-300">espiritualidade o local</span> tiver, mais cura.</p>
             </div>
         ),
@@ -70,82 +73,14 @@ export const skillsGuren: Skills[] = [
         ),
     },
     {
-        name: 'Corte de Miasma',
-        image: './image/corteMiasmaG.png',
-        magic: 'Ação de Arma Mahiru',
-        description: (
-            <div>
-                <p>Mahiru se transforma em Katana, Guren acumula miasma negro em sua espada e <span className="text-yellow-300">lança um corte que "voa"</span> na direção do corte (estilo o Getsuga Tenshō do ichigo).</p>
-            </div>
-        ),
-        type: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
-                <span>Ação</span>
-            </div>
-        ),
-        mana: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
-                <span>4-Mana</span>
-            </div>
-        ),
-    },
-    {
-        name: 'Espinhos',
-        image: './image/correntesG.png',
-        magic: 'Ação de Arma Mahiru',
-        description: (
-            <div>
-                <p>Mahiru se transforma em Kusarigama, quando Guren <span className="text-yellow-300">enrola as correntes</span> da Kusarigama nos inimigos ele ativa a sua habilidade (a sua vontade) e suga energia vital 
-                    <span className="text-yellow-300"> se curando e curando aliados que tocarem nas correntes</span>.</p>
-            </div>
-        ),
-        type: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
-                <span>Ação</span>
-            </div>
-        ),
-        mana: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
-                <span>4-Mana</span>
-            </div>
-        ),
-    },
-    {
-        name: 'Ritmo de Duelo',
-        image: './image/manoplaG.png',
-        magic: 'Ação de Arma Mahiru',
-        description: (
-            <div>
-                <p>Mahiru se transforma em Manoplas, caso o jogador tire <span className="text-yellow-300">18 no dado de acerto natural</span> e acerte o inimigo ele 
-                    pode <span className="text-yellow-300">jogar novamente</span> gastando <span className="text-blue-500">4 de mana se acertar e 2 se errar</span>, caso vc use com a expansão de domínio o cara toma a ult do 
-                    franque e <span className="text-yellow-300">fica trincado</span> durante uma rodada.</p>
-            </div>
-        ),
-        type: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
-                <span>Ação</span>
-            </div>
-        ),
-        mana: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
-                <span>4 ou 2-Mana</span>
-            </div>
-        ),
-    },
-    {
         name: 'Armadura Darkin',
         image: './image/armorDarkinG.png',
         magic: 'Ação de Arma Mahiru',
         description: (
             <div>
                 <p>Mahiru se transforma em uma Armadura envolvendo o Guren adicionando mais <span className="text-yellow-300">+2 de CA</span> gastando  <span className="text-blue-500">1 de mana por rodada</span> e  <span className="text-blue-500">2 de mana</span> <span className="text-yellow-300">por cada 1d6 de cura. </span>
-                <span className="text-yellow-300 underline underline-offset-4">Cura espiritual:</span> ao receber cura usando essa armadura o usuário ganha <span className="text-yellow-300">mais 1d6 de cura</span>.</p>
+                    <p><span className="text-yellow-300 underline underline-offset-4">Cura espiritual:</span> ao receber cura usando essa armadura o usuário ganha <span className="text-yellow-300">mais 1d6 de cura</span>.</p>
+                </p>
             </div>
         ),
         type: (
@@ -158,28 +93,6 @@ export const skillsGuren: Skills[] = [
             <div>
                 <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
                 <span>1-Mana</span>
-            </div>
-        ),
-    },
-    {
-        name: 'Corte triplo',
-        image: './image/corteTriploG.png',
-        magic: 'Ação de Arma',
-        description: (
-            <div>
-                <p>Guren usa sua espada para fazer um corte triplo no seu inimigo que causa <span className="text-yellow-300">3d10+Des de dano</span> em seu adversário.</p>
-            </div>
-        ),
-        type: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
-                <span>Ação</span>
-            </div>
-        ),
-        mana: (
-            <div>
-                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
-                <span>5-Mana</span>
             </div>
         ),
     },

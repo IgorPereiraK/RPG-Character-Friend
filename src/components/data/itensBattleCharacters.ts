@@ -16,7 +16,7 @@ export const armasDeGuren: Item[] = [
     {
         imagem: './image/manoplasG.jpg',
         name: 'Mahiru Manoplas',
-        dano: 'Dano: 3d7+DES',
+        dano: 'Dano: 3d7+FOR',
         texto: 'Essa é uma das outras formas de Mahiru, na forma de Manoplas, Mahiru possibilita Guren a dá vários ataques consecutivos em seus adversários e possibilita Guren a usar sua habilidade Ritmo de Duelo.'
     },
     {

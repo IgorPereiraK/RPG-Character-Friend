@@ -120,7 +120,11 @@ export default function CharacterBattleGuren() {
         } else if (clickGurenPassiva === 3) {
             setClickGurenPassiva(0);
             setButtonBorderColorGurenPassiva("");
-            setNumberGurenEscudo(12)
+            const shield = Math.floor(Math.random() * 12) + 1;
+            const shielding = numberGurenEscudo + shield;
+            setNumberGurenEscudo(shielding)
+
+            alert(`O escudo gerado de 1d12 pela habilidade Vontade do Guerreiro do Mar foi: ${shield} de escudo!`)
         }
     }
 
@@ -324,7 +328,7 @@ export default function CharacterBattleGuren() {
     }
 
     const ritmoDeDueloGuren = () => {
-        setLimitedNumberGurenMP((gurenMP) => gurenMP - 4);
+        setLimitedNumberGurenMP((gurenMP) => gurenMP - 2);
     }
 
     const corteTriploGuren = () => {
@@ -386,7 +390,7 @@ export default function CharacterBattleGuren() {
     return (
         <div>
             <ContainerTurn updateCooldown={updateCooldown} updateArmaduraDarkinGuren={updateArmaduraDarkinGuren} updateFluxoDaAguaGuren={updateFluxoDaAguaGuren} updateKarmaGuren={updateKarmaGuren} updateGuerreiroDoMarGuren={updateGuerreiroDoMarGuren}/>
-            <div className="grid grid-cols-10 px-10 mt-20 items-end gap-1">
+            <div className="grid grid-cols-10 mt-20 items-end gap-1 px-6 2xl:px-10 xl:px-5">
                 <div className="col-span-1 h-60">
                     <Dialog>
                             <DialogTrigger className="w-full">
@@ -469,8 +473,8 @@ export default function CharacterBattleGuren() {
                         />
                         <button onClick={handleIncrementManaGuren} className="bg-blue-600 px-2 py-1 rounded-lg font-semibold uppercase text-gray-baldurText">mana</button>
                     </div>
-                    <div className="grid grid-cols-12">
-                        <div className="h-20 col-span-10 flex p-2 gap-2 mb-0.5">
+                    <div className="flex justify-between">
+                        <div className="h-20 flex p-2 gap-2 mb-0.5">
                             {secondSkillsGuren.map((skill) => (
                                 <SkillBattle key={skill.name}
                                     name={skill.name}
@@ -488,6 +492,18 @@ export default function CharacterBattleGuren() {
                                             case "Karma":
                                                 karmaGuren();
                                                 break;
+                                            case "Corte de Miasma":
+                                                corteDeMiasmaGuren();
+                                                break;
+                                            case "Espinhos":
+                                                espinhosGuren();
+                                                break;
+                                            case "Ritmo de Duelo":
+                                                ritmoDeDueloGuren();
+                                                break;
+                                            case "Corte triplo":
+                                                corteTriploGuren();
+                                                break;
                                             default:
                                                 console.log("Habilidade não encontrada!");
                                         }
@@ -497,92 +513,84 @@ export default function CharacterBattleGuren() {
                                     />
                             ))}
                         </div>
-                        <div className="col-span-1 text-center">
-                            <p className="text-gray-baldurText font-bold uppercase">Ataque</p>
-                            <p className="text-gray-baldurText text-2xl font-bold">+{numberGurenAtaque}</p>
-                        </div>
-                        <div className="col-span-1 text-center">
-                            <p className="text-gray-baldurText font-bold uppercase">Escudo</p>
-                            <p className="text-gray-baldurText text-2xl font-bold ml-3">
-                                <input
-                                id="incrementInput"
-                                type="number"
-                                value={numberGurenEscudo}
-                                onChange={handleChangeNumberEscudo}
-                                className="w-14 bg-gray-baldurBg text-gray-baldurText text-center" 
-                                />
-                            </p>
+                        <div className="flex gap-4">
+                            <div className="text-center">
+                                <p className="text-gray-baldurText font-bold uppercase">Ataque</p>
+                                <p className="text-gray-baldurText text-2xl font-bold">+{numberGurenAtaque}</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-gray-baldurText font-bold uppercase">Escudo</p>
+                                <p className="text-gray-baldurText text-2xl font-bold 2xl:ml-3">
+                                    <input
+                                    id="incrementInput"
+                                    type="number"
+                                    value={numberGurenEscudo}
+                                    onChange={handleChangeNumberEscudo}
+                                    className="w-14 bg-gray-baldurBg text-gray-baldurText text-center" 
+                                    />
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div className="h-20 p-2 flex gap-2 mb-0.5">
-                        {skillsGuren.map((skill) => (
-                            <SkillBattle key={skill.name}
-                                name={skill.name}
-                                image={skill.image}
-                                magic={skill.magic}
-                                description={skill.description}
-                                type={skill.type}
-                                mana={skill.mana} 
-                                onClick={() => {
-                                    // Chama a função correta com base no nome da habilidade
-                                    switch (skill.name) {
-                                        case "Vontade do Guerreiro do Mar":
-                                            guerreiroDoMar();
-                                            break;
-                                        case "Foco do Faraó":
-                                            focoDoFarao();
-                                            break;
-                                        case "Gladiador Imortal":
-                                            gladiadorImortal();
-                                            break;
-                                        case "Mega Evolução Espiritual":
-                                            evolucaoEspiritualGuren();
-                                            break;
-                                        case "Armadura Darkin":
-                                            armaduraDarkinGuren();
-                                            break;
-                                        case "Corte de Miasma":
-                                            corteDeMiasmaGuren();
-                                            break;
-                                        case "Espinhos":
-                                            espinhosGuren();
-                                            break;
-                                        case "Ritmo de Duelo":
-                                            ritmoDeDueloGuren();
-                                            break;
-                                        case "Corte triplo":
-                                            corteTriploGuren();
-                                            break;
-                                        case "Quebra Onda":
-                                            quebraOndaGuren();
-                                            break;
-                                        case "Fluxo da Água":
-                                            fluxoDaAguaGuren();
-                                            break;
-                                        case "Made in Hell":
-                                            madeInHellAndMeiaLuaGuren();
-                                            break;
-                                        case "Sábio da Meia Lua":
-                                            madeInHellAndMeiaLuaGuren();
-                                            break;
-                                        default:
-                                            console.log("Habilidade não encontrada!");
-                                    }
-                                }}
-                                clickGurenPassiva={skill.name === "Vontade do Guerreiro do Mar" ? clickGurenPassiva : null}
-                                borderColorGurenPassiva={skill.name === "Vontade do Guerreiro do Mar" ? buttonBorderColorGurenPassiva : null}
-                                clickGurenUlt={skill.name ==="Made in Hell" || skill.name === "Sábio da Meia Lua" ? clickUltGuren : null}
-                                borderColorGurenUlt={skill.name ==="Made in Hell" || skill.name === "Sábio da Meia Lua" ? buttonBorderColorUltGuren : null}
-                                borderColorGurenArmaduraDarkin={skill.name ==="Armadura Darkin" ? buttonBorderColorGurenArmaduraDarkin : null}
-                                clickGurenFocoFarao={skill.name === "Foco do Faraó" ? clickGurenFocoFarao : null}
-                                borderColorGurenFocoFarao={skill.name === "Foco do Faraó" ? buttonBorderColorGurenFocoFarao : null}
-                                borderColorGurenEvolucaoEspirirual={skill.name === "Mega Evolução Espiritual" ? buttonBorderColorGurenEvolucaoEspiritual : null}
-                                borderColorGurenFluxoDaAgua={skill.name === "Fluxo da Água" ? buttonBorderColorGurenFluxoDaAgua : null}
-                                fluxoDaAguaRounds={skill.name === "Fluxo da Água" ? fluxoDaAguaRounds : null}
-                                />
-                        ))}
+                    <div className="flex justify-between">
+                        <div className="h-20 flex p-2 gap-2 mb-0.5">
+                            {skillsGuren.map((skill) => (
+                                <SkillBattle key={skill.name}
+                                    name={skill.name}
+                                    image={skill.image}
+                                    magic={skill.magic}
+                                    description={skill.description}
+                                    type={skill.type}
+                                    mana={skill.mana} 
+                                    onClick={() => {
+                                        // Chama a função correta com base no nome da habilidade
+                                        switch (skill.name) {
+                                            case "Vontade do Guerreiro do Mar":
+                                                guerreiroDoMar();
+                                                break;
+                                            case "Foco do Faraó":
+                                                focoDoFarao();
+                                                break;
+                                            case "Gladiador Imortal":
+                                                gladiadorImortal();
+                                                break;
+                                            case "Mega Evolução Espiritual":
+                                                evolucaoEspiritualGuren();
+                                                break;
+                                            case "Armadura Darkin":
+                                                armaduraDarkinGuren();
+                                                break;
+                                            case "Quebra Onda":
+                                                quebraOndaGuren();
+                                                break;
+                                            case "Fluxo da Água":
+                                                fluxoDaAguaGuren();
+                                                break;
+                                            case "Made in Hell":
+                                                madeInHellAndMeiaLuaGuren();
+                                                break;
+                                            case "Sábio da Meia Lua":
+                                                madeInHellAndMeiaLuaGuren();
+                                                break;
+                                            default:
+                                                console.log("Habilidade não encontrada!");
+                                        }
+                                    }}
+                                    clickGurenPassiva={skill.name === "Vontade do Guerreiro do Mar" ? clickGurenPassiva : null}
+                                    borderColorGurenPassiva={skill.name === "Vontade do Guerreiro do Mar" ? buttonBorderColorGurenPassiva : null}
+                                    clickGurenUlt={skill.name ==="Made in Hell" || skill.name === "Sábio da Meia Lua" ? clickUltGuren : null}
+                                    borderColorGurenUlt={skill.name ==="Made in Hell" || skill.name === "Sábio da Meia Lua" ? buttonBorderColorUltGuren : null}
+                                    borderColorGurenArmaduraDarkin={skill.name ==="Armadura Darkin" ? buttonBorderColorGurenArmaduraDarkin : null}
+                                    clickGurenFocoFarao={skill.name === "Foco do Faraó" ? clickGurenFocoFarao : null}
+                                    borderColorGurenFocoFarao={skill.name === "Foco do Faraó" ? buttonBorderColorGurenFocoFarao : null}
+                                    borderColorGurenEvolucaoEspirirual={skill.name === "Mega Evolução Espiritual" ? buttonBorderColorGurenEvolucaoEspiritual : null}
+                                    borderColorGurenFluxoDaAgua={skill.name === "Fluxo da Água" ? buttonBorderColorGurenFluxoDaAgua : null}
+                                    fluxoDaAguaRounds={skill.name === "Fluxo da Água" ? fluxoDaAguaRounds : null}
+                                    />
+                            ))}
+                        </div>
                         <div className="px-5 bg-[url('/image/escudo-ca-battle.png')] bg-cover bg-center">
-                            <p className="text-black text-2xl font-bold py-4">{numberGurenCA}</p>
+                            <p className="text-black text-2xl font-bold py-6 ">{numberGurenCA}</p>
                         </div>
                     </div>
                     <div className="w-full h-10 border-2 bg-gray-300 text-center text-xl font-bold text-black border-black relative">
@@ -600,46 +608,45 @@ export default function CharacterBattleGuren() {
                         </div>
                     </div>
                 </div>
-                <div className="bg-orange-500 col-span-2">
                 <div className="grid col-span-2">
                     <table className="table-auto">
                         <thead>
                             <tr className="bg-gray-baldur3 text-gray-baldurText">
-                                <th className="border border-gray-baldurBorder px-4 py-2">Atributo</th>
-                                <th className="border border-gray-baldurBorder px-4 py-2">Valor</th>
-                                <th className="border border-gray-baldurBorder px-4 py-2">Modificador</th>
+                                <th className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-0">Atributo</th>
+                                <th className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Valor</th>
+                                <th className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Modificador</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr className="bg-gray-baldur4 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder px-4 py-2">Força</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.forcaValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{modificadorForcaGuren}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Força</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.forcaValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{modificadorForcaGuren}</td>
                             </tr>
                             <tr className="bg-gray-baldur5 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder  px-4 py-2">Destreza</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.destrezaValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{modificadorDestrezaGuren}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Destreza</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.destrezaValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{modificadorDestrezaGuren}</td>
                             </tr>
                             <tr className="bg-gray-baldur4 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder px-4 py-2">Constituição</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.constituicaoValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{modificadorConstituicaoGuren}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Constituição</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.constituicaoValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{modificadorConstituicaoGuren}</td>
                             </tr>
                             <tr className="bg-gray-baldur5 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder px-4 py-2">Inteligência</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.inteligenciaValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{modificadorInteligenciaGuren}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Inteligência</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.inteligenciaValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{modificadorInteligenciaGuren}</td>
                             </tr>
                             <tr className="bg-gray-baldur4 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder px-4 py-2">Carisma</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.carismaValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{gurenStatus.carismaModificador}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Carisma</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.carismaValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{gurenStatus.carismaModificador}</td>
                             </tr>
                             <tr className="bg-gray-baldur5 text-gray-baldurText">
-                                <td className="border border-gray-baldurBorder px-4 py-2">Sabedoria</td>
-                                <td className="border border-gray-baldurBorder px-8 py-2 text-center">{gurenStatus.sabedoriaValor}</td>
-                                <td className="border border-gray-baldurBorder px-12 py-2 text-center">+{modificadorSabedoriaGuren}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-4 py-2 xl:px-2">Sabedoria</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-8 py-2 xl:px-0 text-center">{gurenStatus.sabedoriaValor}</td>
+                                <td className="border border-gray-baldurBorder 2xl:px-12 py-2 xl:px-0 text-center">+{modificadorSabedoriaGuren}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -659,7 +666,6 @@ export default function CharacterBattleGuren() {
                 />
                 </div>
             </div>
-        </div>
     )
 }
 

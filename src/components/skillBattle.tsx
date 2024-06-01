@@ -30,7 +30,7 @@ export default function SkillBattle({name, image, magic, description, type, mana
         <div>
             <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger onClick={onClick} className="border-4 rounded-md border-gray-900 transition delay-75" style={{borderColor:  borderColors[name] || ''}}><img src={image} className="w-16 h-16"/></TooltipTrigger>
+                        <TooltipTrigger onClick={onClick} className="border-4 rounded-md border-gray-900 transition delay-75" style={{borderColor:  borderColors[name] || ''}}><img src={image} className="2xl:w-16 h-16 lg:w-14"/></TooltipTrigger>
                             <TooltipContent className="max-w-[400px] bg-gray-baldurSkill">
                                 <div className="flex">
                                     <img src={image} className="w-16 h-16"/>

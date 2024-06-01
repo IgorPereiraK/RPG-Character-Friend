@@ -20,7 +20,7 @@ export default function SelectArmorButton() {
     return (
         <button className="">
                     <Dialog>
-                        <DialogTrigger className="w-[91px]">
+                        <DialogTrigger className="2xl:w-[91px] xl:w-16">
                            <img src={armorDeGuren[selectedArmorIndex].imagem} alt={armorDeGuren[selectedArmorIndex].name} className="h-28 border-y-2 border-x-2 border-black w-full"/>
                         </DialogTrigger>
                         <DialogContent className="bg-gray-baldurBgSecond text-gray-baldurText">

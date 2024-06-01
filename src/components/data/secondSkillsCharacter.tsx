@@ -42,4 +42,95 @@ export const secondSkillsGuren: Skills[] = [
             </div>
         ),
     },
+    {
+        name: 'Corte de Miasma',
+        image: './image/corteMiasmaG.png',
+        magic: 'Ação de Arma Mahiru',
+        description: (
+            <div>
+                <p>Mahiru se transforma em Katana, Guren acumula miasma negro em sua espada e <span className="text-yellow-300">lança um corte que "voa"</span> na direção do corte (estilo o Getsuga Tenshō do ichigo).</p>
+            </div>
+        ),
+        type: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
+                <span>Ação</span>
+            </div>
+        ),
+        mana: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
+                <span>4-Mana</span>
+            </div>
+        ),
+    },
+    {
+        name: 'Espinhos',
+        image: './image/correntesG.png',
+        magic: 'Ação de Arma Mahiru',
+        description: (
+            <div>
+                <p>Mahiru se transforma em Kusarigama, quando Guren <span className="text-yellow-300">enrola as correntes</span> da Kusarigama nos inimigos ele ativa a sua habilidade (a sua vontade) e suga energia vital 
+                    <span className="text-yellow-300"> se curando e curando aliados que tocarem nas correntes</span>.</p>
+            </div>
+        ),
+        type: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
+                <span>Ação</span>
+            </div>
+        ),
+        mana: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
+                <span>4-Mana</span>
+            </div>
+        ),
+    },
+    {
+        name: 'Ritmo de Duelo',
+        image: './image/manoplaG.png',
+        magic: 'Ação de Arma Mahiru',
+        description: (
+            <div>
+                <p>Mahiru se transforma em Manoplas, caso o jogador tire <span className="text-yellow-300">18 no dado de acerto natural</span> e acerte o inimigo ele 
+                    pode <span className="text-yellow-300">jogar novamente</span> gastando <span className="text-blue-500">4 de mana se acertar e 2 se errar</span>, caso vc use com a expansão de domínio o cara toma a ult do 
+                    franque e <span className="text-yellow-300">fica trincado</span> durante uma rodada.</p>
+            </div>
+        ),
+        type: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
+                <span>Ação</span>
+            </div>
+        ),
+        mana: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
+                <span>4 ou 2-Mana</span>
+            </div>
+        ),
+    },
+    {
+        name: 'Corte triplo',
+        image: './image/corteTriploG.png',
+        magic: 'Ação de Arma',
+        description: (
+            <div>
+                <p>Guren usa sua espada para fazer um corte triplo no seu inimigo que causa <span className="text-yellow-300">3d10+Des de dano</span> em seu adversário.</p>
+            </div>
+        ),
+        type: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-green-500 rounded-full mr-1"></span>
+                <span>Ação</span>
+            </div>
+        ),
+        mana: (
+            <div>
+                <span className="inline-block w-3 h-3 bg-blue-500 rounded-full mr-1"></span>
+                <span>5-Mana</span>
+            </div>
+        ),
+    },
 ]
